@@ -3,9 +3,18 @@ import React from 'react';
 import {BrowserRouter, Route,Routes, Link} from 'react-router-dom'
 import { Regular } from './pages/Regular';
 import { Hot } from './pages/Hot';
-
+import "./index.css"
+import { memes } from './component/memes';
+import { useState } from 'react';
+import { DisplayMem } from './component/DisplayMem';
 
 function App() {
+
+
+
+
+console.log(filter)
+
   return (
     <div className="App">
 

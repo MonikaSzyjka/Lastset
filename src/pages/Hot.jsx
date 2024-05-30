@@ -1,4 +1,19 @@
-export function Hot (){
 
-  return (<div>hot</div>)
+
+
+
+
+
+
+
+
+
+
+
+
+
+export function Hot (){
+  return (
+    <div>hot</div>
+  )
 }

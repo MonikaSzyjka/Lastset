@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import { memes } from "./memes";
-
+import "./displayMem.css"
 
 export function DisplayMem() {
   return (
@@ -13,19 +13,32 @@ export function DisplayMem() {
   );
 }
 
+const whatHot = memes.filter((mem) => mem.upvotes - mem.downvotes >5)
+
+const isHot = () => {
+  if(whatHot(mem) == true) {
+      return <Hot/>;
+  }
+  return false;}
+
+
+
+
+
 function MemeItem({ mem }) {
   const [upvotes, setUpvotes] = useState(mem.upvotes);
   const [downvotes, setDownvotes] = useState(mem.downvotes);
 
   return (
-    <div>
+    <li><div key={mem.title}>
       <h3>{mem.title}</h3>
-      <button onClick={() => setUpvotes(upvotes + 1)}>Upvotes ({upvotes})</button>
+      <button className='btn' onClick={() => setUpvotes(upvotes + 1)}>Upvotes ({upvotes})</button>
       <p>Upvotes: {upvotes}</p>
-      <button onClick={() => setDownvotes(downvotes + 1)}>Downvotes ({downvotes})</button>
+      <button className='btn' onClick={() => setDownvotes(downvotes + 1)}>Downvotes ({downvotes})</button>
       <p>Downvotes: {downvotes}</p>
-      <img src={mem} alt={mem.title} />
+      <div className='img'>{mem.img} </div>
       <hr />
     </div>
+    </li>
   );
 }
