@@ -1,28 +1,32 @@
 import './App.css';
 import React from 'react';
-import {BrowserRouter, Route,Routes, Link} from 'react-router-dom'
+import {Route,Routes, Link, BrowserRouter} from 'react-router-dom'
 import { Regular } from './pages/Regular';
 import { Hot } from './pages/Hot';
 import "./index.css"
-import { memes } from './component/memes';
-import { useState } from 'react';
-import { DisplayMem } from './component/DisplayMem';
+
+
+
+
+
+  
+  
+  
 
 function App() {
 
 
 
 
-console.log(filter)
+  
+
 
   return (
     <div className="App">
 
-      <div>
-        <h1>
-          Servis Mem
-          </h1>
-          
+<h1> Servis Mem</h1> 
+   
+          <br></br>
     <BrowserRouter>
     <div className="App">
       
@@ -37,8 +41,7 @@ console.log(filter)
     </div>
     </BrowserRouter>
     </div>
-      
-    </div>
+
   );
 }
 
