@@ -1,48 +1,37 @@
-import './App.css';
 import React from 'react';
-import {Route,Routes, Link, BrowserRouter} from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './store';
 import { Regular } from './pages/Regular';
-import { Hot } from './pages/Hot';
-import "./index.css"
-
-
-
-
-
-  
-  
-  
+import { HotMemes } from './pages/Hot';
+import { Form } from './pages/Form';
+import "./App.css";
 
 function App() {
-
-
-
-
-  
-
-
-  return (
-    <div className="App">
-
-<h1> Servis Mem</h1> 
-   
-          <br></br>
-    <BrowserRouter>
-    <div className="App">
-      
-       <ul>
-        <li><Link to="/">Regular</Link></li>
-        <li><Link to="/hot">Hot</Link></li>
-      </ul>
-<Routes>
-  <Route path="/" element={<Regular/>}/>
-  <Route path="/hot" element={<Hot/>}/>
-</Routes>
-    </div>
-    </BrowserRouter>
-    </div>
-
-  );
+    return (
+        <Provider store={store}>
+            <Router>
+                <nav className="navWrapper">
+                    <ul>
+                        <li>
+                            <NavLink to="/" activeclassname="active">Regular</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/hot" activeclassname="active">Hot</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/form" activeclassname="active">Dodaj Mema</NavLink>
+                        </li>
+                    </ul>
+                </nav>
+                <Routes>
+                    <Route path="/" element={<Regular/>}/>
+                    <Route path="/hot" element={<HotMemes />} />
+                    <Route path="/form" element={<Form />} />
+                </Routes>
+            </Router>
+        </Provider>
+    );
 }
 
 export default App;

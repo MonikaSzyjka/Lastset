@@ -1,25 +1,19 @@
-import { Form } from "../component/Form";
-import { DisplayMem } from "../component/DisplayMem";
-import { useState } from "react";
+// src/Regular.jsx
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { MemeItem } from "../component/MemeItem";
 
+export function Regular() {
+    const memes = useSelector((state) => state.memes);
+    const filteredMemes = memes.filter(mem => (mem.upvotes - mem.downvotes) <= 5);
 
-export function Regular (){
-
-  const [items, setItems] = useState();
-
-  const addMem = (data) => {
-  const newMem =[...items,data]
-  setItems(newMem)
-};  
- 
-  return (
-    <section>
-      <DisplayMem/>
-      <div className="form">
-      <Form onAddMem ={addMem}/>
-      </div>
-      </section>
-  )
+    return (
+        <section>
+            <div className="memes">
+                {filteredMemes.map((mem, index) => (
+                    <MemeItem key={index} mem={mem} index={index} />
+                ))}
+            </div>
+        </section>
+    );
 }
-
-

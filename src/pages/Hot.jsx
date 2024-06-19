@@ -1,30 +1,18 @@
-// import { useState } from "react";
-import { DisplayMem } from "../component/DisplayMem";
-// import { memes } from "../component/memes";
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { MemeItem } from '../component/MemeItem';
 
-export function Hot({memes}){
-//  const [mem, setMem] = useState(memes)
+export function HotMemes() {
+    const memes = useSelector((state) => state.memes);
+    const hotMemes = memes.filter(mem => (mem.upvotes - mem.downvotes) > 5);
 
-// const Filtr = memes.filter(mem => {upvotes} - {downvotes} >5)
-
-//  const toHot = (mem) => {
-//   const newMem =[...item, mem]
-//   setMem(newMem)
-// };  
-
-  return (
-    <div>Hot
-        <DisplayMem/>
-
-    </div>
-  );
+    return (
+        <section>
+            <div>
+                {hotMemes.map((mem, index) => (
+                    <MemeItem key={index} mem={mem} index={index} />
+                ))}
+            </div>
+        </section>
+    );
 }
-
-
-
-
-
-
-
-
-
